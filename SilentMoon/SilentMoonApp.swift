@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct SilentMoonApp: App {
+
+    @StateObject private var authManager = AuthManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Group {
+                if authManager.isLoggedIn {
+                    MainView()
+                } else {
+                    LoginView()
+                }
+            }
+            .environmentObject(authManager)
         }
     }
 }
