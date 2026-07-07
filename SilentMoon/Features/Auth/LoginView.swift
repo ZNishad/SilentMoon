@@ -18,7 +18,7 @@ struct LoginView: View {
                     switch destination {
                     case .signIn:
                         SighnInView()
-                    case .SignUp:
+                    case .signUp:
                         SignUpView()
                     }
                 }

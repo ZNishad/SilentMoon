@@ -10,7 +10,7 @@ import SwiftUI
 
 enum AuthDestination: Hashable {
     case signIn
-    case SignUp
+    case signUp
 }
 
 @MainActor
