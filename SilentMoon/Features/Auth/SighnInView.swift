@@ -17,11 +17,19 @@ struct SighnInView: View {
 
     @State private var isSecure: Bool = true
 
+    @EnvironmentObject var router: AuthRouter
+
     var body: some View {
         VStack(spacing: 20) {
             headerButton
             middleFilder
+            footer
+            Spacer()
         }
+        .contentShape(Rectangle())
+            .onTapGesture {
+                hideKeyboard()
+            }
         .alert("Service not avilable", isPresented: $showAlert) {
             Button("OK", role: .cancel) {
 
@@ -46,7 +54,7 @@ extension SighnInView {
                     .foregroundStyle(.black)
                     .multilineTextAlignment(.center)
 
-                SMButtons(title: "continue with facebook".capitalized, style: .facebook) {
+                SMButtons(title: "continue with facebook".uppercased(), style: .facebook) {
                     showAlert = true
                 }
                 .overlay(alignment: .leading) {
@@ -55,16 +63,17 @@ extension SighnInView {
                         .padding(.leading, 40)
                 }
 
-                SMButtons(title: "continue with google".capitalized, style: .google) {
+                SMButtons(title: "continue with google".uppercased(), style: .google) {
                     showAlert = true
                 }
                 .overlay(alignment: .leading) {
                     Image(.googleLogo)
                         .foregroundStyle(.gray)
-                        .padding(.leading, 40)
+                        .padding(.leading, 33)
                 }
             }
             .padding(.top, 40)
+            .padding(.bottom, 24)
         }
         .padding(.horizontal, 20)
     }
@@ -76,32 +85,56 @@ extension SighnInView {
                 .textCase(.uppercase)
                 .font(.system(size: 14))
                 .foregroundStyle(.gray)
+                .padding(.bottom, 24)
 
             SMTextField(placeholder: "email adress".capitalized, text: $emailText)
 
-            if isSecure {
+            ZStack {
                 SMSecureField(placeholder: "password".capitalized, password: $passwordText)
-                    .overlay(alignment: .trailing) {
-                        Image(.closedEye)
-                            .padding(.trailing, 20)
-                            .onTapGesture {
-                                isSecure.toggle()
-                            }
-                    }
-            } else {
-                SMTextField(placeholder: "password".capitalized, text: $passwordText)
-                    .overlay(alignment: .trailing) {
-                        Image(systemName: "eye.slash")
-                            .padding(.trailing, 20)
-                            .onTapGesture {
-                                isSecure.toggle()
-                            }
-                    }
+                    .opacity(isSecure ? 1 : 0)
 
+                SMTextField(placeholder: "password".capitalized, text: $passwordText)
+                    .opacity(isSecure ? 0 : 1)
             }
+            .overlay(alignment: .trailing) {
+                Button {
+                    isSecure.toggle()
+                } label: {
+                    Image(systemName: isSecure ? "eye.slash" : "eye.fill")
+                        .padding(.trailing, 20)
+                }
+                .foregroundStyle(.gray)
+            }
+
+            SMButtons(title: "log in".uppercased(), style: .purple) {
+                router.push(.home)
+            }
+
+            Text("Forgot Password?")
+                .font(.system(size: 14))
         }
         .padding(.horizontal, 20)
+    }
 
+    @ViewBuilder
+    private var footer: some View {
+        HStack(spacing: 4) {
+            Text("Don't have an account?")
+                .foregroundColor(.gray)
+
+            Text("Sign Up")
+                .foregroundColor(Asset.Color.smPurple)
+                .onTapGesture {
+                    router.push(.signUp)
+                }
+        }
+        .padding(.top, 76)
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

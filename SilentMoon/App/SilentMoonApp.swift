@@ -15,7 +15,7 @@ struct SilentMoonApp: App {
         WindowGroup {
             Group {
                 if authManager.isLoggedIn {
-                    MainView()
+                    Home()
                 } else {
                     LoginView()
                 }

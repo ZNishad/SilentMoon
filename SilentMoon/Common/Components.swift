@@ -48,7 +48,7 @@ struct SMButtons: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.headline)
+                .font(.system(size: 14))
                 .foregroundStyle(style.foregroundColor)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 25)

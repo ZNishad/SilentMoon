@@ -11,6 +11,7 @@ import SwiftUI
 enum AuthDestination: Hashable {
     case signIn
     case signUp
+    case home
 }
 
 @MainActor

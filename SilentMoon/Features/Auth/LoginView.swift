@@ -20,6 +20,8 @@ struct LoginView: View {
                         SighnInView()
                     case .signUp:
                         SignUpView()
+                    case .home:
+                        Home()
                     }
                 }
         }
