@@ -7,22 +7,33 @@
 
 import SwiftUI
 
-enum Asset {
-    enum Image {
-        static let welcomeHeaderLogoLoght = SwiftUI.Image(.silentMoonLogoLight)
+struct Asset {
+    private init() {}
+
+    struct Image {
+        private init() {}
+
+        static let welcomeHeaderLogoLight = SwiftUI.Image(.silentMoonLogoLight)
         static let welcomeHeaderBackground = SwiftUI.Image(.welcomeHeaderBackground)
         static let welcomeHeaderImage = SwiftUI.Image(.welcomeHeader)
         static let fingerBackground = SwiftUI.Image(.fingerBackground)
-
+        static let silenMoonLogoPurple = SwiftUI.Image(.silenMoonLogoPurple)
+        static let meditationImage = SwiftUI.Image(.meditate)
+        static let meditateBackground = SwiftUI.Image(.meditateBackground)
     }
 
-    enum Color {
+    struct Color {
+        private init() {}
+
         static let smPurple = SwiftUI.Color.smPurple
         static let smWhite = SwiftUI.Color.smWhite
         static let fbBLue = SwiftUI.Color.fbBlue
+        static let smMilk = SwiftUI.Color.milk
     }
 
-    enum String {
+    struct String {
+        private init() {}
+
         static let signUpButton = "Sign Up"
         static let signInButton = "Sign In"
     }

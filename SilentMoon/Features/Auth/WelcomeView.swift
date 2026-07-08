@@ -32,7 +32,7 @@ extension WelcomeView {
                     .ignoresSafeArea()
 
                 VStack(spacing: 8) {
-                    Asset.Image.welcomeHeaderLogoLoght
+                    Asset.Image.welcomeHeaderLogoLight
                     Asset.Image.welcomeHeaderImage
                 }
                 .padding(.top, 40)
@@ -63,14 +63,12 @@ extension WelcomeView {
             }
 
             HStack(spacing: 4) {
-                Text("Already have an account?")
-                    .textCase(.uppercase)
+                Text("Already have an account?".capitalized)
                     .font(.system(size: 14))
                     .foregroundColor(.gray)
 
 
-                Text("Log In")
-                    .textCase(.uppercase)
+                Text("sign in".capitalized)
                     .font(.system(size: 14))
                     .foregroundColor(Asset.Color.smPurple)
                     .onTapGesture {

@@ -17,11 +17,15 @@ struct LoginView: View {
                 .navigationDestination(for: AuthDestination.self) { destination in
                     switch destination {
                     case .signIn:
-                        SighnInView()
+                        SignInView()
                     case .signUp:
                         SignUpView()
-                    case .home:
-                        Home()
+                    case .privacyPolicy:
+                        PrivacyPolicyView()
+                    case .getStarted:
+                        GetStartView()
+                    case .chooseTopic:
+                        ChooseTopicView()
                     }
                 }
         }

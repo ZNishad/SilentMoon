@@ -12,6 +12,7 @@ enum SMButtonStyle {
     case light
     case facebook
     case google
+    case disabledPurple
 
     var backgroundColor: Color {
         switch self {
@@ -23,6 +24,8 @@ enum SMButtonStyle {
             return Asset.Color.fbBLue
         case .google:
             return Asset.Color.smWhite
+        case .disabledPurple:
+            return Asset.Color.smPurple.opacity(0.3)
         }
     }
 
@@ -36,6 +39,10 @@ enum SMButtonStyle {
             return .smWhite
         case .google:
             return .black
+        case .disabledPurple:
+            return .black.opacity(0.7)
+
+
         }
     }
 }
@@ -48,7 +55,7 @@ struct SMButtons: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.system(size: 14))
+                .font(.headline)
                 .foregroundStyle(style.foregroundColor)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 25)

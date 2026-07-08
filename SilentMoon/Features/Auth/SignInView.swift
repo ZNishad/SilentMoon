@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SighnInView: View {
+struct SignInView: View {
 
     @State private var showAlert: Bool = false
 
@@ -35,10 +35,22 @@ struct SighnInView: View {
 
             }
         }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    router.popToRoot()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundStyle(.black)
+                }
+
+            }
+        }
     }
 }
 
-extension SighnInView {
+extension SignInView {
 
     @ViewBuilder
     private var headerButton: some View {
@@ -54,7 +66,7 @@ extension SighnInView {
                     .foregroundStyle(.black)
                     .multilineTextAlignment(.center)
 
-                SMButtons(title: "continue with facebook".uppercased(), style: .facebook) {
+                SMButtons(title: "continue with facebook".capitalized, style: .facebook) {
                     showAlert = true
                 }
                 .overlay(alignment: .leading) {
@@ -63,7 +75,7 @@ extension SighnInView {
                         .padding(.leading, 40)
                 }
 
-                SMButtons(title: "continue with google".uppercased(), style: .google) {
+                SMButtons(title: "continue with google".capitalized, style: .google) {
                     showAlert = true
                 }
                 .overlay(alignment: .leading) {
@@ -81,8 +93,7 @@ extension SighnInView {
     @ViewBuilder
     private var middleFilder: some View {
         VStack(spacing: 20) {
-            Text("or log in with email")
-                .textCase(.uppercase)
+            Text("or log in with email".capitalized)
                 .font(.system(size: 14))
                 .foregroundStyle(.gray)
                 .padding(.bottom, 24)
@@ -106,8 +117,8 @@ extension SighnInView {
                 .foregroundStyle(.gray)
             }
 
-            SMButtons(title: "log in".uppercased(), style: .purple) {
-                router.push(.home)
+            SMButtons(title: "log in".capitalized, style: .purple) {
+
             }
 
             Text("Forgot Password?")
@@ -132,12 +143,6 @@ extension SighnInView {
     }
 }
 
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-
 #Preview {
-    SighnInView()
+    SignInView()
 }
