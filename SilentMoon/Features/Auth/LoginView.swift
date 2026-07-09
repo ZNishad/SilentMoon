@@ -26,6 +26,8 @@ struct LoginView: View {
                         GetStartView()
                     case .chooseTopic:
                         ChooseTopicView()
+                    case .reminders:
+                        RemindersView()
                     }
                 }
         }

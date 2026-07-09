@@ -9,12 +9,7 @@ import Combine
 import SwiftUI
 
 enum AuthDestination: Hashable {
-    case signIn
-    case signUp
-    case privacyPolicy
-    case getStarted
-    case chooseTopic
-
+    case signIn, signUp, privacyPolicy, getStarted, chooseTopic, reminders
 }
 
 @MainActor

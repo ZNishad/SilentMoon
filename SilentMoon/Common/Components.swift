@@ -13,6 +13,7 @@ enum SMButtonStyle {
     case facebook
     case google
     case disabledPurple
+    case clear
 
     var backgroundColor: Color {
         switch self {
@@ -26,6 +27,8 @@ enum SMButtonStyle {
             return Asset.Color.smWhite
         case .disabledPurple:
             return Asset.Color.smPurple.opacity(0.3)
+        case .clear:
+            return .clear
         }
     }
 
@@ -41,6 +44,8 @@ enum SMButtonStyle {
             return .black
         case .disabledPurple:
             return .black.opacity(0.7)
+        case .clear:
+            return .black
 
 
         }

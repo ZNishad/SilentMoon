@@ -10,17 +10,21 @@ import SwiftUI
 @main
 struct SilentMoonApp: App {
 
-    @StateObject private var authManager = AuthManager()
+    @StateObject private var routerManager = RouterManager()
+
+    init() {
+        UserDefaults.standard.set(false, forKey: "IsLoggedIn")
+    }
     var body: some Scene {
         WindowGroup {
             Group {
-                if authManager.isLoggedIn {
+                if routerManager.isLoggedIn {
                     Home()
                 } else {
                     LoginView()
                 }
             }
-            .environmentObject(authManager)
+            .environmentObject(routerManager)
         }
     }
 }

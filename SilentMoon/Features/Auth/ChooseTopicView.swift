@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct ChooseTopicView: View {
+
+    @EnvironmentObject var router: AuthRouter
+
+    private let topics: [TopicCard] = TopicCard.allTopics
+
+    private var leftColumn: [TopicCard] {
+        topics.enumerated().filter { $0.offset % 2 == 0 }.map(\.element)
+    }
+
+    private var rightColumn: [TopicCard] {
+        topics.enumerated().filter { $0.offset % 2 == 1 }.map(\.element)
+    }
+
     var body: some View {
-        VStack {
-            header
-            Spacer()
+        ScrollView {
+            VStack {
+                header
+                mainSection
+            }
         }
         .toolbar(.hidden, for: .navigationBar)
-        .padding(20)
-
+        .padding(.horizontal, 20)
+        .padding(.top, 20)
+        .scrollIndicators(.hidden)
     }
 }
 
@@ -42,7 +58,47 @@ extension ChooseTopicView {
 
     @ViewBuilder
     private var mainSection: some View {
-        
+        HStack(alignment: .top, spacing: 16) {
+            VStack(spacing: 16) {
+                ForEach(leftColumn) { topic in
+                    topicCard(topic)
+                }
+            }
+
+            VStack(spacing: 16) {
+                ForEach(rightColumn) { topic in
+                    topicCard(topic)
+                }
+            }
+        }
+        .padding(.top, 24)
+    }
+
+    @ViewBuilder
+    private func topicCard(_ topic: TopicCard) -> some View {
+        ZStack(alignment: .top) {
+            RoundedRectangle(cornerRadius: 20)
+                .fill(topic.backgroundColor)
+
+            VStack {
+                Image(topic.imageName)
+                    .resizable()
+                    .scaledToFit()
+
+                Spacer()
+
+                Text(topic.title)
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(.white)
+                    .padding(16)
+                    .multilineTextAlignment(.leading)
+            }
+            .padding(10)
+        }
+        .frame(height: topic.height)
+        .onTapGesture {
+            router.push(.reminders)
+        }
     }
 }
 

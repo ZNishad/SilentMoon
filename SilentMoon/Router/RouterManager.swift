@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 @MainActor
-final class AuthManager: ObservableObject {
+final class RouterManager: ObservableObject {
     @Published var isLoggedIn: Bool = UserDefaults.standard.bool(forKey: "IsLoggedIn")
 
     func login() {

@@ -16,7 +16,6 @@ struct WelcomeView: View {
             middleText
             buttonSection
         }
-
     }
         
 }

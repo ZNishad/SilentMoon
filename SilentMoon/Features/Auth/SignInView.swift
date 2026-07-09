@@ -19,6 +19,8 @@ struct SignInView: View {
 
     @EnvironmentObject var router: AuthRouter
 
+    @EnvironmentObject var manager: RouterManager
+
     var body: some View {
         VStack(spacing: 20) {
             headerButton
@@ -118,7 +120,7 @@ extension SignInView {
             }
 
             SMButtons(title: "log in".capitalized, style: .purple) {
-
+                manager.login()
             }
 
             Text("Forgot Password?")
