@@ -28,5 +28,4 @@ final class AuthRouter: ObservableObject {
     func popToRoot() {
         path = NavigationPath()
     }
-
 }

@@ -12,18 +12,27 @@ struct SilentMoonApp: App {
 
     @StateObject private var routerManager = RouterManager()
 
-    init() {
-        UserDefaults.standard.set(false, forKey: "IsLoggedIn")
-    }
+//    init() {
+//        UserDefaults.standard.set(false, forKey: "IsLoggedIn")
+//    }
     var body: some Scene {
         WindowGroup {
             Group {
                 if routerManager.isLoggedIn {
-                    Home()
+                    MainTabView()
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .bottom).combined(with: .opacity),
+                            removal: .opacity
+                        ))
                 } else {
                     LoginView()
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .bottom).combined(with: .opacity),
+                            removal: .opacity
+                        ))
                 }
             }
+            .animation(.easeInOut(duration: 0.4), value: routerManager.isLoggedIn)
             .environmentObject(routerManager)
         }
     }

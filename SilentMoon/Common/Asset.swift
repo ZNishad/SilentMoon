@@ -20,6 +20,14 @@ struct Asset {
         static let silenMoonLogoPurple = SwiftUI.Image(.silenMoonLogoPurple)
         static let meditationImage = SwiftUI.Image(.meditate)
         static let meditateBackground = SwiftUI.Image(.meditateBackground)
+        static let basicCourse = SwiftUI.Image(.basicCourse)
+        static let relaxation = SwiftUI.Image(.relaxation)
+        static let dailyBack = SwiftUI.Image(.dailyBackground)
+        static let focusCard = SwiftUI.Image(.foucsCard)
+        static let happinessCard = SwiftUI.Image(.happinesCard)
+        static let coursePoster = SwiftUI.Image(.courseDetailPoster)
+        static let heartIcon = SwiftUI.Image(.heartIcon)
+        static let headphoneIcon = SwiftUI.Image(.headphoneIcon)
     }
 
     struct Color {
@@ -29,6 +37,7 @@ struct Asset {
         static let smWhite = SwiftUI.Color.smWhite
         static let fbBLue = SwiftUI.Color.fbBlue
         static let smMilk = SwiftUI.Color.milk
+        static let relaxBack = SwiftUI.Color.relaxBack
     }
 
     struct String {

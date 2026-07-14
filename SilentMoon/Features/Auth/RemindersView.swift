@@ -15,6 +15,8 @@ struct RemindersView: View {
 
     @EnvironmentObject var routerManager: RouterManager
 
+    @EnvironmentObject var router: AuthRouter
+
     private let days = ["SU", "M", "T", "W", "TH", "F", "S"]
 
     var body: some View {
