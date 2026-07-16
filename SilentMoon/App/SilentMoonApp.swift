@@ -15,7 +15,7 @@ struct SilentMoonApp: App {
     init() {
         UserDefaults.standard.set(false, forKey: "IsLoggedIn")
     }
-    
+
     var body: some Scene {
         WindowGroup {
             Group {
@@ -33,7 +33,7 @@ struct SilentMoonApp: App {
                         ))
                 }
             }
-            .animation(.easeInOut(duration: 0.4), value: routerManager.isLoggedIn)
+            .animation(.spring(duration: 0.4), value: routerManager.isLoggedIn)
             .environmentObject(routerManager)
         }
     }
