@@ -20,13 +20,13 @@ struct SilentMoonApp: App {
         WindowGroup {
             Group {
                 if routerManager.isLoggedIn {
-                    MainTabView()
+                    MainRouterView()
                         .transition(.asymmetric(
                             insertion: .move(edge: .bottom).combined(with: .opacity),
                             removal: .opacity
                         ))
                 } else {
-                    LoginView()
+                    AuthRouterView()
                         .transition(.asymmetric(
                             insertion: .move(edge: .bottom).combined(with: .opacity),
                             removal: .opacity

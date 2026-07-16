@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @EnvironmentObject var router: AuthRouter
+    @EnvironmentObject var authRouter: AuthRouter
 
     var body: some View {
         VStack {
@@ -58,7 +58,7 @@ extension WelcomeView {
     private var buttonSection: some View {
         VStack(spacing: 24) {
             SMButtons(title: Asset.String.signUpButton, style: .purple) {
-                router.push(.signUp)
+                authRouter.push(.signUp)
             }
 
             HStack(spacing: 4) {
@@ -71,7 +71,7 @@ extension WelcomeView {
                     .font(.system(size: 14))
                     .foregroundColor(Asset.Color.smPurple)
                     .onTapGesture {
-                        router.push(.signIn)
+                        authRouter.push(.signIn)
                     }
             }
         }

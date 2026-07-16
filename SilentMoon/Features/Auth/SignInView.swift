@@ -17,9 +17,9 @@ struct SignInView: View {
 
     @State private var isSecure: Bool = true
 
-    @EnvironmentObject var router: AuthRouter
+    @EnvironmentObject var authRouter: AuthRouter
 
-    @EnvironmentObject var manager: RouterManager
+    @EnvironmentObject var routerManager: RouterManager
 
     var body: some View {
         VStack(spacing: 20) {
@@ -41,7 +41,7 @@ struct SignInView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
-                    router.popToRoot()
+                    authRouter.popToRoot()
                 } label: {
                     Image(systemName: "chevron.left")
                         .foregroundStyle(.black)
@@ -120,7 +120,7 @@ extension SignInView {
             }
 
             SMButtons(title: "log in".capitalized, style: .purple) {
-                manager.login()
+                routerManager.login()
             }
 
             Text("Forgot Password?")
@@ -138,7 +138,7 @@ extension SignInView {
             Text("Sign Up")
                 .foregroundColor(Asset.Color.smPurple)
                 .onTapGesture {
-                    router.push(.signUp)
+                    authRouter.push(.signUp)
                 }
         }
         .padding(.top, 76)

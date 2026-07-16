@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChooseTopicView: View {
 
-    @EnvironmentObject var router: AuthRouter
+    @EnvironmentObject var authRouter: AuthRouter
 
     private let topics: [TopicCard] = TopicCard.allTopics
 
@@ -97,7 +97,7 @@ extension ChooseTopicView {
         }
         .frame(height: topic.height)
         .onTapGesture {
-            router.push(.reminders)
+            authRouter.push(.reminders)
         }
     }
 }

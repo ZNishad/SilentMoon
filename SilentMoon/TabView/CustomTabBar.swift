@@ -90,7 +90,3 @@ extension CustomTabBar {
         }
     }
 }
-
-#Preview {
-    CustomTabBar(selectedTab: .constant(MainTab.home))
-}

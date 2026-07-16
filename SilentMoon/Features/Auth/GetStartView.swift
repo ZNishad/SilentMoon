@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GetStartView: View {
 
-    @EnvironmentObject var router: AuthRouter
+    @EnvironmentObject var authRouter: AuthRouter
 
     private var getStartedTitle: String {
         "get started".capitalized
@@ -61,7 +61,7 @@ extension GetStartView {
                 .offset(y: 67)
 
             SMButtons(title: getStartedTitle, style: .light) {
-                router.push(.chooseTopic)
+                authRouter.push(.chooseTopic)
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 40)

@@ -19,7 +19,7 @@ struct SignUpView: View {
 
     @State private var isProvicyAccepted: Bool = false
 
-    @EnvironmentObject var router: AuthRouter
+    @EnvironmentObject var authRouter: AuthRouter
 
     var body: some View {
         VStack(spacing: 20) {
@@ -41,7 +41,7 @@ struct SignUpView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
-                    router.popToRoot()
+                    authRouter.popToRoot()
                 } label: {
                     Image(systemName: "chevron.left")
                         .foregroundStyle(.black)
@@ -119,7 +119,7 @@ extension SignUpView {
             }
 
             SMButtons(title: "sign up".capitalized, style: !isProvicyAccepted ? .disabledPurple : .purple) {
-                router.push(.getStarted)
+                authRouter.push(.getStarted)
             }
             .disabled(!isProvicyAccepted)
             .scaleEffect(isProvicyAccepted ? 1 : 0.98)
@@ -135,7 +135,7 @@ extension SignUpView {
                         .foregroundColor(Asset.Color.smPurple)
                         .font(.system(size: 14))
                         .onTapGesture {
-                            router.push(.privacyPolicy)
+                            authRouter.push(.privacyPolicy)
                         }
                 }
 
@@ -166,7 +166,7 @@ extension SignUpView {
             Text("Sign In".capitalized)
                 .foregroundColor(Asset.Color.smPurple)
                 .onTapGesture {
-                    router.push(.signIn)
+                    authRouter.push(.signIn)
                 }
         }
     }

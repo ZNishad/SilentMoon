@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainTabView: View {
+struct MainRouterView: View {
     @State private var selectedTab: MainTab = .home
     @StateObject private var mainRouter = MainRouter()
 
@@ -16,7 +16,7 @@ struct MainTabView: View {
     }
 }
 
-extension MainTabView {
+extension MainRouterView {
     @ViewBuilder
     private var navigation: some View {
         NavigationStack(path: $mainRouter.path) {

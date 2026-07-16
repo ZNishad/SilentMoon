@@ -22,6 +22,27 @@ struct CourseDetailView: View {
             }
         }
         .ignoresSafeArea()
+        .toolbar {
+            ToolbarItem {
+                Button {
+
+                } label: {
+                    Image(systemName: "heart")
+                }
+            }
+
+            if #available(iOS 26.0, *) {
+                ToolbarSpacer()
+            }
+
+            ToolbarItem {
+                Button {
+
+                } label: {
+                    Image(systemName: "square.and.arrow.down")
+                }
+            }
+        }
 
     }
 

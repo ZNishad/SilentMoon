@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct AuthRouterView: View {
 
-    @StateObject private var router = AuthRouter()
+    @StateObject private var authRouter = AuthRouter()
 
     var body: some View {
-        NavigationStack(path: $router.path) {
+        NavigationStack(path: $authRouter.path) {
             WelcomeView()
                 .navigationDestination(for: AuthDestination.self) { destination in
                     switch destination {
@@ -31,10 +31,10 @@ struct LoginView: View {
                     }
                 }
         }
-        .environmentObject(router)
+        .environmentObject(authRouter)
     }
 }
 
 #Preview {
-    LoginView()
+    AuthRouterView()
 }
