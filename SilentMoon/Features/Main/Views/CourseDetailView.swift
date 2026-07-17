@@ -33,6 +33,10 @@ struct CourseDetailView: View {
 
             if #available(iOS 26.0, *) {
                 ToolbarSpacer()
+            } else {
+                ToolbarItem {
+                    Spacer()
+                }
             }
 
             ToolbarItem {
@@ -111,7 +115,7 @@ extension CourseDetailView {
 
                         if selectedSegment == index {
                             Rectangle()
-                                .frame(height: 2)
+                                .frame(width: 50, height: 1.5)
                                 .foregroundStyle(.smPurple)
                                 .matchedGeometryEffect(id: "indicator", in: segmentAnimation)
                         } else {

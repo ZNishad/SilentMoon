@@ -29,7 +29,7 @@ extension MainRouterView {
                     case .music: MusicView()
                     case .profile: ProfileView()
                     }
-                }
+                }   
                 .frame(maxHeight: .infinity)
 
                 CustomTabBar(selectedTab: $selectedTab)

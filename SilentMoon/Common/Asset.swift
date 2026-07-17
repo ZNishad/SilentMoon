@@ -28,6 +28,14 @@ struct Asset {
         static let coursePoster = SwiftUI.Image(.courseDetailPoster)
         static let heartIcon = SwiftUI.Image(.heartIcon)
         static let headphoneIcon = SwiftUI.Image(.headphoneIcon)
+        static let allIcon = SwiftUI.Image(.allIcon)
+        static let myIcon = SwiftUI.Image(.myIcon)
+        static let anxiousIcon = SwiftUI.Image(.anxiousIcon)
+        static let sleppIcon = SwiftUI.Image(.sleepIcon)
+        static let kidsIcon = SwiftUI.Image(.kidsIcon)
+        static let adultIcon = SwiftUI.Image(systemName: "person")
+        static let relaxIcon = SwiftUI.Image(systemName: "figure.mind.and.body")
+        static let dailyCalmBack = SwiftUI.Image(.dailyCalmBackground)
     }
 
     struct Color {
