@@ -12,10 +12,6 @@ struct SilentMoonApp: App {
 
     @StateObject private var routerManager = RouterManager()
 
-//    init() {
-//        UserDefaults.standard.set(false, forKey: "IsLoggedIn")
-//    }
-
     var body: some Scene {
         WindowGroup {
             Group {
